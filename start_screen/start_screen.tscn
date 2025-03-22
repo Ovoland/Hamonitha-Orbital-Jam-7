@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://duierf7e518ix"]
+
+[ext_resource type="Script" uid="uid://c1oucw8bofc2w" path="res://start_screen/start_screen.gd" id="1_8bm5k"]
+[ext_resource type="PackedScene" uid="uid://bp78oya76jx8n" path="res://start_screen/start_screen_overlay.tscn" id="1_rs4r3"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_8bm5k")
+
+[node name="StartScreenOverlay" parent="." instance=ExtResource("1_rs4r3")]
