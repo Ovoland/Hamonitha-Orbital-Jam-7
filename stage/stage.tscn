@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwd2usbtvn0up"]
+[gd_scene load_steps=4 format=3 uid="uid://bwd2usbtvn0up"]
 
 [ext_resource type="Script" uid="uid://dmk1002bh705n" path="res://stage/stage.gd" id="1_v3mmb"]
 [ext_resource type="PackedScene" uid="uid://ddepahyssu5xn" path="res://nucleus/nucleus.tscn" id="2_nusa8"]
+[ext_resource type="PackedScene" uid="uid://bx7rvuc5bo7oj" path="res://player/player.tscn" id="3_nusa8"]
 
 [node name="word" type="Node2D"]
-position = Vector2(433, 244)
 script = ExtResource("1_v3mmb")
 
 [node name="nucleus" parent="." instance=ExtResource("2_nusa8")]
-position = Vector2(87, 87)
+position = Vector2(215, -135)
+
+[node name="Player" parent="." instance=ExtResource("3_nusa8")]
+position = Vector2(111, 53)

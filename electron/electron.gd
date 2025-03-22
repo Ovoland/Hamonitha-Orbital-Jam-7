@@ -13,7 +13,7 @@ var health = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("ready")
-	$AnimatedSprite2D.play("default")
+	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -27,7 +27,7 @@ func init(orbitCenter, orbitRadius, orbitAngle, orbitSpeed):
 	
 	
 func circular_movement():
-	angle += speed * get_process_delta_time()
+	angle += 0.5*speed * get_process_delta_time()
 	var x_pos = cos(angle)
 	var y_pos = sin(angle) #+ 0.2*sin(5*angle + PI/2) for even more oscillation
 	

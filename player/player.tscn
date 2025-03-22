@@ -15,14 +15,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
-radius = 41.0488
+radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+modulate = Color(0.27451, 0.388235, 0.952941, 1)
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_0e48y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,6 +36,5 @@ one_shot = true
 [node name="DashCooldown" type="Timer" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
