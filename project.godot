@@ -17,4 +17,4 @@ config/icon="res://sprites/icon.svg"
 
 [autoload]
 
-Stage="*res://scenes/stage.tscn"
+Stage="*res://stage/stage.tscn"

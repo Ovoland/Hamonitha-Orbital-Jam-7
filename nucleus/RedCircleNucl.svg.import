@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7idmmtokr1ku"
-path="res://.godot/imported/RedCircle.svg-79d6cdbf5a525c0232266abd3b9a17c6.ctex"
+uid="uid://c68erjw6qgofc"
+path="res://.godot/imported/RedCircleNucl.svg-47693615d68832d213cd31827ecd340e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/RedCircle.svg"
-dest_files=["res://.godot/imported/RedCircle.svg-79d6cdbf5a525c0232266abd3b9a17c6.ctex"]
+source_file="res://nucleus/RedCircleNucl.svg"
+dest_files=["res://.godot/imported/RedCircleNucl.svg-47693615d68832d213cd31827ecd340e.ctex"]
 
 [params]
 
