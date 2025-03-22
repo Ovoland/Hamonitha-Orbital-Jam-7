@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwd2usbtvn0up"]
+[gd_scene load_steps=3 format=3 uid="uid://behu57xxhbmkc"]
 
 [ext_resource type="Script" uid="uid://dmk1002bh705n" path="res://stage/stage.gd" id="1_v3mmb"]
 [ext_resource type="PackedScene" uid="uid://ddepahyssu5xn" path="res://nucleus/nucleus.tscn" id="2_nusa8"]
 
 [node name="word" type="Node2D"]
-position = Vector2(433, 244)
 script = ExtResource("1_v3mmb")
 
 [node name="nucleus" parent="." instance=ExtResource("2_nusa8")]
