@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bekjpt7j5c1gq"]
+
+[ext_resource type="Script" uid="uid://qjgmtk7qi187" path="res://scripts/electron.gd" id="1_twysd"]
+[ext_resource type="Texture2D" uid="uid://c7idmmtokr1ku" path="res://sprites/RedCircle.svg" id="2_dx3fw"]
+[ext_resource type="Script" uid="uid://b4mjrilw8rjfd" path="res://scripts/path_electron.gd" id="3_dx3fw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rt1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dx3fw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_twysd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 169, 86)
+}
+point_count = 1
+
+[node name="electronEnemy" type="RigidBody2D"]
+modulate = Color(0.847059, 0, 1, 1)
+gravity_scale = 0.0
+script = ExtResource("1_twysd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(228, 115)
+scale = Vector2(0.02, 0.02)
+sprite_frames = SubResource("SpriteFrames_4rt1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="OrbitePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_twysd")
+script = ExtResource("3_dx3fw")
+
+[node name="OrbitePathFollow2D" type="PathFollow2D" parent="OrbitePath"]
+position = Vector2(269, 125)
+rotation = 2.77986

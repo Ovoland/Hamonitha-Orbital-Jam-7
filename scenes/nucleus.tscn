@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddepahyssu5xn"]
+
+[ext_resource type="Script" uid="uid://dn5vy38l5lenk" path="res://scripts/nucleus.gd" id="1_v3wuo"]
+[ext_resource type="Texture2D" uid="uid://c7idmmtokr1ku" path="res://sprites/RedCircle.svg" id="2_ocds8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1cnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ocds8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="nucleus" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_v3wuo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(309, 132)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_c1cnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
