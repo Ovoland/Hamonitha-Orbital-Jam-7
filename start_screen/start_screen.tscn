@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://duierf7e518ix"]
+[gd_scene load_steps=4 format=3 uid="uid://duierf7e518ix"]
 
 [ext_resource type="Script" uid="uid://c1oucw8bofc2w" path="res://start_screen/start_screen.gd" id="1_8bm5k"]
 [ext_resource type="PackedScene" uid="uid://bp78oya76jx8n" path="res://start_screen/start_screen_overlay.tscn" id="1_rs4r3"]
+[ext_resource type="Texture2D" uid="uid://d06xq3bmyx8qx" path="res://cutscenes/backgrounds/Start_Up_Screen.png" id="3_og173"]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource("1_8bm5k")
 
 [node name="StartScreenOverlay" parent="." instance=ExtResource("1_rs4r3")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2388.0
+offset_bottom = 1668.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_og173")
