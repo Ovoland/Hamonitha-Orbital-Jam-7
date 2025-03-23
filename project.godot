@@ -19,6 +19,11 @@ config/icon="res://sprites/icon.svg"
 
 DialogManager="*res://UI/dialogs/dialog_manager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [input]
 
 sprint={
