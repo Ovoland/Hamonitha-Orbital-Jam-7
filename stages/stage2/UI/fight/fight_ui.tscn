@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://biweywjnx1omc"]
+
+[ext_resource type="Script" uid="uid://dlwfh5wh6t3bc" path="res://stages/stage2/UI/fight/fight_ui.gd" id="1_rakan"]
+[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="2_3e2r3"]
+
+[node name="fightUI" type="CanvasLayer"]
+script = ExtResource("1_rakan")
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.003
+anchor_right = 0.001
+anchor_bottom = 0.003
+offset_left = 653.08
+offset_top = 866.76
+offset_right = 1253.08
+offset_bottom = 1073.76
+theme_override_fonts/font = ExtResource("2_3e2r3")
+theme_override_font_sizes/font_size = 80
+text = "Phase 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

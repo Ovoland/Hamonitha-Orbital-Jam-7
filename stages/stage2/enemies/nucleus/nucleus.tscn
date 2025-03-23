@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddepahyssu5xn"]
+[gd_scene load_steps=6 format=3 uid="uid://cj0ps4hhqshyw"]
 
-[ext_resource type="Script" uid="uid://dn5vy38l5lenk" path="res://stages/stage1/enemies/nucleus/nucleus.gd" id="1_v3wuo"]
-[ext_resource type="Texture2D" uid="uid://cfaa3v5l2erg5" path="res://stages/stage1/enemies/nucleus/Hydrogene.png" id="2_an8bm"]
+[ext_resource type="Script" uid="uid://sx7jww0kp0ns" path="res://stages/stage2/enemies/nucleus/nucleus.gd" id="1_ccseo"]
+[ext_resource type="Texture2D" uid="uid://1haj73tnthpq" path="res://stages/stage2/enemies/nucleus/Oxygene.png" id="2_ccseo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1cnm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_an8bm")
+"texture": ExtResource("2_ccseo")
 }],
 "loop": true,
 "name": &"default",
@@ -22,11 +22,11 @@ radius = 97.0052
 
 [node name="nucleus" type="RigidBody2D"]
 gravity_scale = 0.0
-script = ExtResource("1_v3wuo")
+script = ExtResource("1_ccseo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
-scale = Vector2(0.124268, 0.124268)
+position = Vector2(1, -1)
+scale = Vector2(0.123535, 0.123535)
 sprite_frames = SubResource("SpriteFrames_c1cnm")
 
 [node name="colilsionBox" type="CollisionShape2D" parent="."]
@@ -35,6 +35,7 @@ shape = SubResource("CircleShape2D_nb2td")
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_gq2qb")
 debug_color = Color(0.682662, 0.296256, 1, 0.42)
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ph54p6acvm1"
+path="res://.godot/imported/2. O (water level) V2.mp3-506c39f18ef6dd765418b0dfd44e4bf9.mp3str"
+
+[deps]
+
+source_file="res://stages/stage2/2. O (water level) V2.mp3"
+dest_files=["res://.godot/imported/2. O (water level) V2.mp3-506c39f18ef6dd765418b0dfd44e4bf9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

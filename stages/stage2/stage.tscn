@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnwgqjl252k78"]
+
+[ext_resource type="Script" uid="uid://beovhd23co3m0" path="res://stages/stage2/stage.gd" id="1_msvkx"]
+[ext_resource type="PackedScene" uid="uid://cj0ps4hhqshyw" path="res://stages/stage2/enemies/nucleus/nucleus.tscn" id="2_p88jk"]
+[ext_resource type="PackedScene" uid="uid://66itnttx3ekg" path="res://stages/stage2/player/player.tscn" id="3_q4n1m"]
+[ext_resource type="PackedScene" uid="uid://biweywjnx1omc" path="res://stages/stage2/UI/fight/fight_ui.tscn" id="4_msvkx"]
+[ext_resource type="Texture2D" uid="uid://cbjlw334dgj7h" path="res://stages/stage2/background.jpg" id="6_msvkx"]
+[ext_resource type="AudioStream" uid="uid://5ph54p6acvm1" path="res://stages/stage2/2. O (water level) V2.mp3" id="7_gidia"]
+
+[node name="word" type="Node2D" groups=["layer1"]]
+script = ExtResource("1_msvkx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+y_sort_enabled = true
+offset_left = -4071.0
+offset_top = -1376.0
+offset_right = 7126.0
+offset_bottom = 2331.0
+texture = ExtResource("6_msvkx")
+expand_mode = 2
+
+[node name="nucleus" parent="." instance=ExtResource("2_p88jk")]
+position = Vector2(497, 377)
+
+[node name="player" parent="." instance=ExtResource("3_q4n1m")]
+position = Vector2(2090, 957)
+
+[node name="startPosition" type="Marker2D" parent="."]
+position = Vector2(2027, 910)
+scale = Vector2(4.37933, -4.66184)
+
+[node name="fightUI" parent="." instance=ExtResource("4_msvkx")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_gidia")
+parameters/looping = false
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]
+[connection signal="hit" from="nucleus" to="." method="_on_nucleus_hit"]
+[connection signal="wave" from="nucleus" to="." method="_on_nucleus_wave"]
+[connection signal="hit" from="player" to="." method="game_over"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

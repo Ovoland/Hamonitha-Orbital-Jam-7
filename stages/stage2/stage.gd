@@ -1,14 +1,17 @@
 extends Node2D
 
-@export var electron_scene : PackedScene = preload("res://stages/stage1/enemies/electron/electron.tscn") 
-@export var orbital_scene: PackedScene = preload("res://stages/stage1/enemies/orbital/orbital.tscn")
+@export var electron_scene : PackedScene = preload("res://stages/stage2/enemies/electron/electron.tscn") 
+@export var orbital_scene: PackedScene = preload("res://stages/stage2/enemies/orbital/orbital.tscn")
+@export var wave_scene: PackedScene = preload("res://stages/stage2/enemies/wave/wave.tscn")
 
-const initRadius = 150
+@export var path_death_scene = "res://stages/stage2/UI/death_screen/death_screen.tscn"
+
+const initRadius = 250
 
 #Determine the number of electrons per layer
-var electronsLayerPhase1 = [4,5,6]
-var electronsLayerPhase2 = [4,5,5,5]
-var electronsLayerPhase3 = [3,4,4,6,7]
+var electronsLayerPhase1 = [3,4,4,5]
+var electronsLayerPhase2 = [5,5,5,5,7]
+var electronsLayerPhase3 = [5,4,4,6,7,8]
 
 var phases = [electronsLayerPhase3,  electronsLayerPhase2, electronsLayerPhase1]
 var nbPhase = 3
@@ -24,10 +27,11 @@ func _process(delta: float) -> void:
 	
 func game_over() -> void:
 	$Music.stop()
-	get_tree().change_scene_to_file("res://stages/stage1/UI/death_screen/death_screen.tscn")
+	get_tree().change_scene_to_file(path_death_scene)
 	
 func new_game():
 	$Music.play()
+	$WaveTimer.start()
 	$player.start($startPosition.position)
 	var phase1 = phases.pop_back()
 	instanciateBoss(phase1)
@@ -40,11 +44,12 @@ func instanciateBoss(electronsLayerPhase):
 		var orbit = orbital_scene.instantiate()
 		orbit.init($nucleus.position, 0.5*initRadius + initRadius * iLayer)
 		add_child(orbit)
+		var sign = [-1,1][randi() % [-1,1].size()]
 		for jElec in range(1, electronsLayerPhase[iLayer -1 ] + 1):
 			var angle = 2*PI/electronsLayerPhase[iLayer - 1]
 			#Create an electron
 			var electron = electron_scene.instantiate()
-			electron.init($nucleus.position, 0.5*initRadius + initRadius * iLayer, angle * jElec, (nbLayers - iLayer + 1))	
+			electron.init($nucleus.position, 0.5*initRadius + initRadius * iLayer, angle * jElec, sign*(nbLayers - iLayer + 1))	
 			add_child(electron)
 						
 	
@@ -57,9 +62,8 @@ func _on_nucleus_hit() -> void:
 	instanciateBoss(phase)
 	var nbLayer = phase.size()
 	$fightUI.show_message("Phase " + str(nbPhase - phases.size()))
-	print("layer")
-	print(nbLayer)
-	$player.knockbacking($player.position - $nucleus.position, 0.45 * nbLayer)
+	$player.knockbacking($player.position - $nucleus.position, 0.7 * nbLayer)
+	$WaveTimer.wait_time -= 1
 
 	
 
@@ -75,7 +79,11 @@ func _on_nucleus_dead() -> void:
 	cleanOrbitals()
 	cleanElectrons()
 	print("You win!")
+		
 
-
-func _on_player_hit() -> void:
-	pass # Replace with function body.
+func _on_wave_timer_timeout() -> void:
+	$nucleus.chargeAttack()
+	var wave = wave_scene.instantiate()
+	wave.init($nucleus.position, $player.position - $nucleus.position, $nucleus.position.angle_to_point($player.position), 200)
+	add_child(wave)
+	

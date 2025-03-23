@@ -5,23 +5,26 @@ var health = 3
 var speed = 300.0
 var last_dir = Vector2.DOWN
 
+const DEFAULT_SPEED = 300
 const KNOCKBACK_VELOCITY = 400
+const DASH_VELOCITY = 1500
+const SRINT_VELOCITY = 600
 const JUMP_VELOCITY = -400.0
 
 var knockback = Vector2.ZERO
-const recoveryTime = 0.3
+const recoveryTime = 0.5
 const knockbackTime = 0.3
 var dashing = false
 
 #Abilities
-var dashUnlocked = false
+var dashUnlocked = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
 	if !dashing:
-		speed = 300
+		speed = DEFAULT_SPEED
 	
 	#Verify that we aren't in a knocking back animation
 	if knockback == Vector2.ZERO:
@@ -29,12 +32,14 @@ func _physics_process(delta: float) -> void:
 		var direction = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_just_pressed("dash") and dashUnlocked:
 			dashing = true
-			speed = 2000.0
+			speed = DASH_VELOCITY
 			velocity = last_dir
+			$collisionBox.set_deferred("disabled", true)
+			$hitbox/CollisionShape2D.set_deferred("disabled", true)
 			$DashTimer.start()
 		else:
 			if Input.is_action_pressed("sprint"):
-				speed = 600.0
+				speed = SRINT_VELOCITY
 			if Input.is_action_pressed("move_right"):
 				direction.x += 1
 			if Input.is_action_pressed("move_left"):
@@ -85,14 +90,16 @@ func start(pos):
 
 func _on_dash_timer_timeout() -> void:
 	dashing = false
-	speed = 300.0
+	$collisionBox.set_deferred("disabled", false)
+	$hitbox/CollisionShape2D.set_deferred("disabled", false)
+	speed = DEFAULT_SPEED
 	
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("electron"):
+	if body.has_method("electron") or body.has_method("wave"):
 		health -= 1
 		if health > 0:
-			$HitMusic.play()
+			$MusicHit.play()
 			$KnockbackTimer.wait_time = knockbackTime
 			knockbacking(position - body.position,$KnockbackTimer.wait_time)
 			modulate = Color.RED
@@ -103,6 +110,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			hit.emit()
 			# Must be deferred as we can't change physics properties on a physics callback.
 			$hitbox/CollisionShape2D.set_deferred("disable",true)
+		
 			
 
 
