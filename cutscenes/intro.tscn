@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckj1w7i6nim0q"]
+
+[ext_resource type="Script" uid="uid://duq6lw7xlke11" path="res://cutscenes/intro.gd" id="1_mbx7u"]
+[ext_resource type="PackedScene" uid="uid://spmgx5dgdnj5" path="res://sprites/Eden/eden.tscn" id="2_75nhy"]
+[ext_resource type="PackedScene" uid="uid://or1imalxan7s" path="res://narrator/narrator_screen.tscn" id="2_fynay"]
+[ext_resource type="Texture2D" uid="uid://cv0iwl2j2k3dc" path="res://cutscenes/backgrounds/dark_alleyway.png" id="4_75nhy"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_mbx7u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 595.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.25, 3.25)
+texture = ExtResource("4_75nhy")
+
+[node name="Eden" parent="." instance=ExtResource("2_75nhy")]
+position = Vector2(900, 800)
+
+[node name="NarratorScreen" parent="." instance=ExtResource("2_fynay")]
+color = Color(0, 0, 0, 0)

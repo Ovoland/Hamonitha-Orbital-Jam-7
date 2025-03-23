@@ -8,5 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed('start_game'):
-		get_tree().change_scene_to_file('res://cutscenes/intro.tscn')
+	pass
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed('start_game'):
+		get_tree().change_scene_to_file('res://cutscenes/meeting_o.tscn')

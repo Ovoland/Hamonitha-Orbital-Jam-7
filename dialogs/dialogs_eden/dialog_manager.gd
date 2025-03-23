@@ -1,6 +1,6 @@
 extends Node
 
-@onready var text_box_scene = preload("res://dialogs/text_box.tscn")
+@onready var text_box_scene = preload("res://dialogs/dialogs_eden/text_box.tscn")
 
 
 var dialog_lines: Array[String] = []
@@ -12,6 +12,7 @@ var text_box_position: Vector2
 var is_dialog_active = false
 var can_advance_line = false
 
+signal dialog_over()
 
 func start_dialog(position: Vector2, lines: Array[String]):
 	if is_dialog_active:
@@ -49,6 +50,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if current_line_index >= dialog_lines.size():
 			is_dialog_active = false
 			current_line_index = 0
+			dialog_over.emit()
 			return
 			
 		_show_text_box()

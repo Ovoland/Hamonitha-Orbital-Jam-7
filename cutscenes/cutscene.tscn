@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwg7dmn08ere"]
+
+[ext_resource type="Script" uid="uid://d3frgbfkf6p82" path="res://cutscenes/cutscene.gd" id="1_c1036"]
+[ext_resource type="PackedScene" uid="uid://spmgx5dgdnj5" path="res://sprites/Eden/eden.tscn" id="2_e7jua"]
+[ext_resource type="PackedScene" uid="uid://or1imalxan7s" path="res://narrator/narrator_screen.tscn" id="3_aanlq"]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_c1036")
+
+[node name="Eden" parent="." instance=ExtResource("2_e7jua")]
+position = Vector2(900, 800)
+
+[node name="NarratorScreen" parent="." instance=ExtResource("3_aanlq")]

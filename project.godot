@@ -17,7 +17,15 @@ config/icon="res://sprites/icon.svg"
 
 [autoload]
 
-DialogManager="*res://dialogs/dialog_manager.gd"
+DialogManager="*res://dialogs/dialogs_eden/dialog_manager.gd"
+NarratorManager="*res://narrator/narrator_manager.gd"
+DialogManagerH="*res://dialogs/dialogs_h/dialog_manager_h.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 
