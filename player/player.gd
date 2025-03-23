@@ -1,10 +1,13 @@
 extends CharacterBody2D
+signal hit
 
-
+var health = 4
 var speed = 300.0
-const JUMP_VELOCITY = -400.0
-var dashing = false
 var last_dir = Vector2.DOWN
+const JUMP_VELOCITY = -400.0
+
+#Abilities
+var dashing = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -61,5 +64,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func player():
+	pass
+
 func _on_dash_timer_timeout() -> void:
 	dashing = false
+
+
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	health -= 1
+	if false: #health <= 0:
+		hide()
+		hit.emit()
+		# Must be deferred as we can't change physics properties on a physics callback.
+		$hitbox/CollisionShape2D.set_deferred("disable",true)
+
+
+func start(pos):
+	position = pos
+	show()
+	$hitbox/CollisionShape2D.disabled = false

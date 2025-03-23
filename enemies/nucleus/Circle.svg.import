@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwl8cvbgc6nd6"
-path="res://.godot/imported/TextBubble.svg-f09da539030faeea3af233a480d28010.ctex"
+uid="uid://dpq7nk4f2ec2f"
+path="res://.godot/imported/Circle.svg-8ddef06bc1468d6f3d52357d7d60ebdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nucleus/TextBubble.svg"
-dest_files=["res://.godot/imported/TextBubble.svg-f09da539030faeea3af233a480d28010.ctex"]
+source_file="res://enemies/nucleus/Circle.svg"
+dest_files=["res://.godot/imported/Circle.svg-8ddef06bc1468d6f3d52357d7d60ebdb.ctex"]
 
 [params]
 

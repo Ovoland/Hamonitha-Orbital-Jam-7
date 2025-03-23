@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cg0depop5oab6"
-path="res://.godot/imported/AlegreyaSans-Black.ttf-3200d27166b275b795c4ed4e9f0b25df.fontdata"
+path="res://.godot/imported/AlegreyaSans-Black.ttf-65d5e5c35feef1dcca18be1ac752c147.fontdata"
 
 [deps]
 
-source_file="res://fonts/AlegreyaSans-Black.ttf"
-dest_files=["res://.godot/imported/AlegreyaSans-Black.ttf-3200d27166b275b795c4ed4e9f0b25df.fontdata"]
+source_file="res://UI/fonts/AlegreyaSans-Black.ttf"
+dest_files=["res://.godot/imported/AlegreyaSans-Black.ttf-65d5e5c35feef1dcca18be1ac752c147.fontdata"]
 
 [params]
 

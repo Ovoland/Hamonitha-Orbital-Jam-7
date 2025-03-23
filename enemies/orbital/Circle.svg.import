@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpq7nk4f2ec2f"
-path="res://.godot/imported/Circle.svg-c616f1245121ca5422f233f605781032.ctex"
+uid="uid://cyrh4l3tsow7e"
+path="res://.godot/imported/Circle.svg-8806942dabfde78c94f4ccef3fcececc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nucleus/Circle.svg"
-dest_files=["res://.godot/imported/Circle.svg-c616f1245121ca5422f233f605781032.ctex"]
+source_file="res://enemies/orbital/Circle.svg"
+dest_files=["res://.godot/imported/Circle.svg-8806942dabfde78c94f4ccef3fcececc.ctex"]
 
 [params]
 

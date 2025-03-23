@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx7rvuc5bo7oj"]
+[gd_scene load_steps=6 format=3 uid="uid://bx7rvuc5bo7oj"]
 
 [ext_resource type="Script" uid="uid://dfai6ya5kowu7" path="res://player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://yxen8fo7jpfq" path="res://player/Assets/RedCircle.svg" id="2_i3pqv"]
@@ -17,6 +17,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 21.0
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_onrkg")
@@ -26,7 +29,7 @@ modulate = Color(0.27451, 0.388235, 0.952941, 1)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_0e48y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="collisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_epypp")
 
 [node name="DashTimer" type="Timer" parent="."]
@@ -37,4 +40,11 @@ one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_rkbax")
+debug_color = Color(0.803316, 0.00244909, 0.999821, 0.42)
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bp78oya76jx8n"]
 
-[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://fonts/AlegreyaSans-Black.ttf" id="1_rs4r3"]
+[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="1_rs4r3"]
 
 [node name="StartScreenOverlay" type="CanvasLayer"]
 
