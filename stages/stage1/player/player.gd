@@ -91,7 +91,8 @@ func _on_dash_timer_timeout() -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("electron"):
 		health -= 1
-		if true: #health > 0:
+		if health > 0:
+			$HitMusic.play()
 			$KnockbackTimer.wait_time = knockbackTime
 			knockbacking(position - body.position,$KnockbackTimer.wait_time)
 			modulate = Color.RED

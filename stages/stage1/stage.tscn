@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwd2usbtvn0up"]
+[gd_scene load_steps=6 format=3 uid="uid://bwd2usbtvn0up"]
 
 [ext_resource type="Script" uid="uid://dmk1002bh705n" path="res://stages/stage1/stage.gd" id="1_v3mmb"]
 [ext_resource type="PackedScene" uid="uid://ddepahyssu5xn" path="res://stages/stage1/enemies/nucleus/nucleus.tscn" id="2_1ikmb"]
 [ext_resource type="PackedScene" uid="uid://bx7rvuc5bo7oj" path="res://stages/stage1/player/player.tscn" id="3_lekrv"]
 [ext_resource type="PackedScene" uid="uid://b8hrk7yd0uh7r" path="res://stages/stage1/UI/fight/fight_ui.tscn" id="4_aqvps"]
+[ext_resource type="AudioStream" uid="uid://d1qjslf8207t2" path="res://stages/stage1/Music/1. Shy guy (sky).mp3" id="5_lekrv"]
 
 [node name="word" type="Node2D" groups=["layer1"]]
 script = ExtResource("1_v3mmb")
@@ -19,6 +20,11 @@ position = Vector2(139, 123)
 
 [node name="fightUI" parent="." instance=ExtResource("4_aqvps")]
 
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lekrv")
+autoplay = true
+
 [connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]
 [connection signal="hit" from="nucleus" to="." method="_on_nucleus_hit"]
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
 [connection signal="hit" from="player" to="." method="game_over"]

@@ -26,11 +26,11 @@ func _process(delta: float) -> void:
 	pass
 	
 func game_over() -> void:
-	#$Music.stop()
+	$Music.stop()
 	get_tree().change_scene_to_file(path_death_scene)
 	
 func new_game():
-	#$Music.play()
+	$Music.play()
 	$WaveTimer.start()
 	$player.start($startPosition.position)
 	var phase1 = phases.pop_back()

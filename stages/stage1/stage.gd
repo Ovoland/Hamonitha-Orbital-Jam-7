@@ -23,9 +23,11 @@ func _process(delta: float) -> void:
 	pass
 	
 func game_over() -> void:
-	get_tree().change_scene_to_file("res://stages/stage1/UI/death_screen1/death_screen.tscn")
+	$Music.stop()
+	get_tree().change_scene_to_file("res://stages/stage1/UI/death_screen/death_screen.tscn")
 	
 func new_game():
+	$Music.play()
 	$player.start($startPosition.position)
 	var phase1 = phases.pop_back()
 	instanciateBoss(phase1)
@@ -73,3 +75,7 @@ func _on_nucleus_dead() -> void:
 	cleanOrbitals()
 	cleanElectrons()
 	print("You win!")
+
+
+func _on_player_hit() -> void:
+	pass # Replace with function body.

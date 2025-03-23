@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx7rvuc5bo7oj"]
+[gd_scene load_steps=7 format=3 uid="uid://bx7rvuc5bo7oj"]
 
 [ext_resource type="Script" uid="uid://dfai6ya5kowu7" path="res://stages/stage1/player/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://byamqwuug504d" path="res://stages/stage1/player/Assets/player_electron.png" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://8mf13ytl3nf1" path="res://stages/stage1/Music/Hit.mp3" id="3_x2dkl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0e48y"]
 animations = [{
@@ -49,6 +50,10 @@ debug_color = Color(0.803316, 0.00244909, 0.999821, 0.42)
 
 [node name="KnockbackTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HitMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_x2dkl")
+volume_db = -4.952
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

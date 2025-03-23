@@ -99,6 +99,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("electron") or body.has_method("wave"):
 		health -= 1
 		if health > 0:
+			$MusicHit.play()
 			$KnockbackTimer.wait_time = knockbackTime
 			knockbacking(position - body.position,$KnockbackTimer.wait_time)
 			modulate = Color.RED

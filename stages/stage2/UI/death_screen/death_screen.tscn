@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4bce358w73k1"]
+[gd_scene load_steps=4 format=3 uid="uid://d4bce358w73k1"]
 
 [ext_resource type="Script" uid="uid://ckd3v8r7hpc0t" path="res://stages/stage2/UI/death_screen/death_screen.gd" id="1_4d727"]
 [ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="2_afp2u"]
+[ext_resource type="AudioStream" uid="uid://dtwsq2sbk61hl" path="res://stages/stage2/Music/Game Over.mp3" id="3_fycrh"]
 
 [node name="deathScreen" type="Node2D"]
 script = ExtResource("1_4d727")
@@ -34,3 +35,6 @@ theme_override_font_sizes/font_size = 24
 text = "Press enter to start again "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fycrh")
