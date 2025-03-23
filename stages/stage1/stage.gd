@@ -74,6 +74,7 @@ func cleanElectrons():
 func _on_nucleus_dead() -> void:
 	cleanOrbitals()
 	cleanElectrons()
+	$nucleus.queue_free()
 	print("You win!")
 
 

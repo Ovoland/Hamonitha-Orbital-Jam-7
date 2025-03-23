@@ -34,6 +34,7 @@ scale = Vector2(4.37933, -4.66184)
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_gidia")
+volume_db = 3.962
 parameters/looping = false
 
 [node name="WaveTimer" type="Timer" parent="."]
