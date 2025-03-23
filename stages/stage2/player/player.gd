@@ -136,3 +136,6 @@ func _on_knockback_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dashCoolDowned = false
+	modulate = Color.KHAKI
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color.WHITE

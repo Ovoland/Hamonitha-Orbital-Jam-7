@@ -1,52 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnwgqjl252k78"]
+[gd_scene load_steps=9 format=3 uid="uid://bnwgqjl252k78"]
 
 [ext_resource type="Script" uid="uid://beovhd23co3m0" path="res://stages/stage2/stage.gd" id="1_msvkx"]
 [ext_resource type="PackedScene" uid="uid://cj0ps4hhqshyw" path="res://stages/stage2/enemies/nucleus/nucleus.tscn" id="2_p88jk"]
 [ext_resource type="PackedScene" uid="uid://66itnttx3ekg" path="res://stages/stage2/player/player.tscn" id="3_q4n1m"]
 [ext_resource type="PackedScene" uid="uid://biweywjnx1omc" path="res://stages/stage2/UI/fight/fight_ui.tscn" id="4_msvkx"]
-[ext_resource type="Texture2D" uid="uid://cbjlw334dgj7h" path="res://stages/stage2/background.jpg" id="6_msvkx"]
-[ext_resource type="AudioStream" uid="uid://5ph54p6acvm1" path="res://stages/stage2/2. O (water level) V2.mp3" id="7_gidia"]
+[ext_resource type="Texture2D" uid="uid://cwe0y0wdshxcn" path="res://stages/stage2/Background.jpg" id="6_msvkx"]
+[ext_resource type="AudioStream" path="res://stages/stage2/2. O (water level) V2.mp3" id="7_gidia"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msvkx"]
+size = Vector2(122, 3199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gidia"]
+size = Vector2(3994, 144.75)
 
 [node name="word" type="Node2D" groups=["layer1"]]
 script = ExtResource("1_msvkx")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-y_sort_enabled = true
-offset_left = -2136.0
-offset_top = -1258.0
-offset_right = 7281.0
-offset_bottom = 2423.0
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -2303.0
+offset_top = -1916.0
+offset_right = 3828.0
+offset_bottom = 259.0
 texture = ExtResource("6_msvkx")
-expand_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
-y_sort_enabled = true
-offset_left = -120.0
-offset_top = 3454.0
-offset_right = 9557.0
-offset_bottom = 7135.0
-texture = ExtResource("6_msvkx")
-expand_mode = 2
+flip_h = true
 flip_v = true
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect"]
-y_sort_enabled = true
-offset_left = -250.0
-offset_top = -3562.0
-offset_right = 9427.0
-offset_bottom = 119.0
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 1952.0
+offset_right = 6144.0
+offset_bottom = 4091.0
 texture = ExtResource("6_msvkx")
-expand_mode = 2
-flip_v = true
 
 [node name="nucleus" parent="." instance=ExtResource("2_p88jk")]
 position = Vector2(497, 377)
 
 [node name="player" parent="." instance=ExtResource("3_q4n1m")]
-position = Vector2(2090, 957)
+position = Vector2(1786, 745)
 
 [node name="startPosition" type="Marker2D" parent="."]
-position = Vector2(2027, 910)
+position = Vector2(1779, 755)
 scale = Vector2(4.37933, -4.66184)
 
 [node name="fightUI" parent="." instance=ExtResource("4_msvkx")]
@@ -59,6 +53,26 @@ parameters/looping = false
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 7.0
 autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1043, 112)
+shape = SubResource("RectangleShape2D_msvkx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2754, 164)
+shape = SubResource("RectangleShape2D_msvkx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(879, -1109)
+shape = SubResource("RectangleShape2D_gidia")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(861, 1638)
+shape = SubResource("RectangleShape2D_gidia")
 
 [connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]
 [connection signal="hit" from="nucleus" to="." method="_on_nucleus_hit"]

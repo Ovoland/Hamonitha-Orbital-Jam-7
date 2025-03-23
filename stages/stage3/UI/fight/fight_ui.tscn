@@ -26,13 +26,12 @@ vertical_alignment = 1
 wait_time = 2.0
 
 [node name="ZaWarduEffect" type="Label" parent="."]
-offset_left = 1074.0
-offset_top = 2.0
-offset_right = 1157.0
-offset_bottom = 49.0
+offset_left = 1244.0
+offset_top = -3.0
+offset_right = 1327.0
+offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_mgiub")
 theme_override_font_sizes/font_size = 25
-text = "⌛:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
