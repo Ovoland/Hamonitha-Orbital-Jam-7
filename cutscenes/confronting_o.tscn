@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://1slh0yct01fg"]
+
+[ext_resource type="Script" uid="uid://daf6gghnu2kjx" path="res://cutscenes/confronting_o.gd" id="1_moalu"]
+[ext_resource type="Texture2D" uid="uid://cv0iwl2j2k3dc" path="res://cutscenes/backgrounds/dark_alleyway.png" id="2_on605"]
+[ext_resource type="PackedScene" uid="uid://dersvbecf043i" path="res://sprites/H/h.tscn" id="3_qvx7n"]
+[ext_resource type="PackedScene" uid="uid://spmgx5dgdnj5" path="res://sprites/Eden/eden.tscn" id="4_4ni5x"]
+[ext_resource type="PackedScene" uid="uid://bb5wxov7qujn7" path="res://sprites/O/o.tscn" id="5_syc5a"]
+[ext_resource type="PackedScene" uid="uid://or1imalxan7s" path="res://narrator/narrator_screen.tscn" id="6_ag5k6"]
+
+[node name="ConfrontingO" type="Node2D"]
+script = ExtResource("1_moalu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 595.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.25, 3.25)
+texture = ExtResource("2_on605")
+
+[node name="H" parent="." instance=ExtResource("3_qvx7n")]
+position = Vector2(1000, 800)
+
+[node name="Eden" parent="." instance=ExtResource("4_4ni5x")]
+position = Vector2(900, 800)
+
+[node name="O" parent="." instance=ExtResource("5_syc5a")]
+visible = false
+position = Vector2(1000, 800)
+
+[node name="NarratorScreen" parent="." instance=ExtResource("6_ag5k6")]

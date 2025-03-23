@@ -26,7 +26,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_gqhxw")
-theme_override_font_sizes/font_size = 200
-text = "Ending 1"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 64
+text = "To the total surprise of H,  Eli, without further comment, just pivoted on his heels and turned back. She was left here in the rain and the dark alley wondering what just happened. On the other hand,  Eli left, happy to have put some workout in before going to sleep underneath the nearest bridge, oblivious that he had just run down a young woman in the middle of the night. He only realised the next morning when he was arrested for terrorizing local residents
+
+-Ending 1"
 vertical_alignment = 1
+autowrap_mode = 2

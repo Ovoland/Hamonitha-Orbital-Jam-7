@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca6ycf8tvdyy"]
+[gd_scene load_steps=3 format=3 uid="uid://cyyn8p0pns77g"]
 
-[ext_resource type="Script" uid="uid://bgyffk5r5r5t" path="res://cutscenes/endings/ending_2.gd" id="1_pb3nc"]
+[ext_resource type="Script" uid="uid://dm8tqxl7doexb" path="res://cutscenes/endings/ending_3.gd" id="1_f3cmy"]
 [ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://fonts/AlegreyaSans-Black.ttf" id="2_jtwjp"]
 
-[node name="Ending2" type="Node2D"]
-script = ExtResource("1_pb3nc")
+[node name="Ending3" type="Node2D"]
+script = ExtResource("1_f3cmy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -27,8 +27,12 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_jtwjp")
 theme_override_font_sizes/font_size = 64
-text = "Before the boy could react, she pulled out a pepper spray can and blasted his eyes. In a screech of surprise  Eli fell down and H disappeared into the night. A small price to pay in the grand scheme of things for such a poor display of charisma and social skills. He would live if only with a scathing reminder of his awkwardness. Seriously who even came up with that.
+text = "Ah. Bold. Unhinged.
+ You could’ve flirted. You could’ve gone home.
+ But no—you chose delusion.
+You reentered the club screaming,  Cousin Zax?  and leapt like the laws of physics had personally offended you.
+ The crowd parted like electrons dodging a static charge, and gravity welcomed you with open, unrelenting arms.
 
--Ending 2"
+-Ending 3"
 vertical_alignment = 1
 autowrap_mode = 2

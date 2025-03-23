@@ -1,13 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1mgv7bhw2t8y"]
+[gd_scene load_steps=5 format=3 uid="uid://b1mgv7bhw2t8y"]
 
-[ext_resource type="Script" uid="uid://c7dwe07kmsca8" path="res://cutscenes/meeting_h.gd" id="1_1r6sy"]
 [ext_resource type="PackedScene" uid="uid://spmgx5dgdnj5" path="res://sprites/Eden/eden.tscn" id="1_hmm58"]
 [ext_resource type="Texture2D" uid="uid://cv0iwl2j2k3dc" path="res://cutscenes/backgrounds/dark_alleyway.png" id="1_u413j"]
 [ext_resource type="PackedScene" uid="uid://or1imalxan7s" path="res://narrator/narrator_screen.tscn" id="2_u413j"]
 [ext_resource type="PackedScene" uid="uid://dersvbecf043i" path="res://sprites/H/h.tscn" id="3_b3fjk"]
 
 [node name="MeetingH" type="Node2D"]
-script = ExtResource("1_1r6sy")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8

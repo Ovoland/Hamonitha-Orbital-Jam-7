@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca6ycf8tvdyy"]
+[gd_scene load_steps=3 format=3 uid="uid://n3yr0g6u4oha"]
 
-[ext_resource type="Script" uid="uid://bgyffk5r5r5t" path="res://cutscenes/endings/ending_2.gd" id="1_pb3nc"]
+[ext_resource type="Script" uid="uid://q8ya763mpqkw" path="res://cutscenes/endings/ending_4.gd" id="1_pqhmv"]
 [ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://fonts/AlegreyaSans-Black.ttf" id="2_jtwjp"]
 
-[node name="Ending2" type="Node2D"]
-script = ExtResource("1_pb3nc")
+[node name="Ending4" type="Node2D"]
+script = ExtResource("1_pqhmv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
@@ -27,8 +27,13 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_jtwjp")
 theme_override_font_sizes/font_size = 64
-text = "Before the boy could react, she pulled out a pepper spray can and blasted his eyes. In a screech of surprise  Eli fell down and H disappeared into the night. A small price to pay in the grand scheme of things for such a poor display of charisma and social skills. He would live if only with a scathing reminder of his awkwardness. Seriously who even came up with that.
+text = "Ah, yes. The ol’  it’s past my bedtime  escape.
+Bold choice—bailing on social development and plot progression in one sleepy sentence.
 
--Ending 2"
+You disappear into the night like a moody raccoon, 
+You walked into a neon-lit, bass-thumping fever dream of a night…
+And left like you were sneaking out of a mildly disappointing sleepover. Maybe next time, try staying up past 9 pm.
+
+-Ending 4"
 vertical_alignment = 1
 autowrap_mode = 2

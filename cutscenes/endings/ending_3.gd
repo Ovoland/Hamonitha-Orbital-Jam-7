@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed('start_game'):
-		get_tree().change_scene_to_file('res://cutscenes/confronting_o.tscn')
+		get_tree().change_scene_to_file('res://cutscenes/Transitions/chapter_3_question.tscn')
