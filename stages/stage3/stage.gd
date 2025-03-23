@@ -1,17 +1,16 @@
 extends Node2D
 
-@export var electron_scene : PackedScene = preload("res://stages/stage2/enemies/electron/electron.tscn") 
-@export var orbital_scene: PackedScene = preload("res://stages/stage2/enemies/orbital/orbital.tscn")
-@export var wave_scene: PackedScene = preload("res://stages/stage2/enemies/wave/wave.tscn")
+@export var electron_scene : PackedScene = preload("res://stages/stage3/enemies/electron/electron.tscn") 
+@export var orbital_scene: PackedScene = preload("res://stages/stage3/enemies/orbital/orbital.tscn")
 
-@export var path_death_scene = "res://stages/stage2/UI/death_screen/death_screen.tscn"
+@export var path_death_scene = "res://stages/stage3/UI/death_screen/death_screen.tscn"
 
-const initRadius = 200
+const initRadius = 175
 
 #Determine the number of electrons per layer
-var electronsLayerPhase1 = [3,4,4,5]
-var electronsLayerPhase2 = [5,5,5,5,7]
-var electronsLayerPhase3 = [5,4,4,6,7,8]
+var electronsLayerPhase1 = [3,4,4,5,6]
+var electronsLayerPhase2 = [5,6,6,7,8,9]
+var electronsLayerPhase3 = [5,5,6,7,8,8,9,10]
 
 var phases = [electronsLayerPhase3,  electronsLayerPhase2, electronsLayerPhase1]
 var nbPhase = 3
@@ -23,7 +22,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if $ZaWardoEffect.time_left > 0:
+		$fightUI.show_ZaWardo_Effect(str(int($ZaWardoEffect.time_left)))
+	else:
+		$fightUI.show_ZaWardo_Effect("")
 	
 func game_over() -> void:
 	$Music.stop()
@@ -62,7 +64,7 @@ func _on_nucleus_hit() -> void:
 	instanciateBoss(phase)
 	var nbLayer = phase.size()
 	$fightUI.show_message("Phase " + str(nbPhase - phases.size()))
-	$player.knockbacking($player.position - $nucleus.position, 0.6 * nbLayer)
+	$player.knockbacking($player.position - $nucleus.position, 0.5 * nbLayer)
 	$WaveTimer.wait_time -= 1
 
 	
@@ -79,13 +81,15 @@ func _on_nucleus_dead() -> void:
 	cleanOrbitals()
 	cleanElectrons()
 	$nucleus.queue_free()
-	$WaveTimer.stop()
 	print("You win!")
 		
 
-func _on_wave_timer_timeout() -> void:
-	$nucleus.chargeAttack()
-	var wave = wave_scene.instantiate()
-	wave.init($nucleus.position, $player.position - $nucleus.position, $nucleus.position.angle_to_point($player.position), 200)
-	add_child(wave)
+func _zaWarudo() -> void:
+	get_tree().call_group("electrons","setOnZaWardo")
+	$player.setOnZawardo()
+	$ZaWardoEffect.start()
 	
+
+func _on_za_wardo_effect_timeout() -> void:
+	$player.setOffZawardo()
+	get_tree().call_group("electrons","setOffZaWardo")

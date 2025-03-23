@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0pthajcgya2g"]
+
+[ext_resource type="Script" uid="uid://c88avggwgl0mr" path="res://orbital/orbital.gd" id="1_knh48"]
+
+[node name="orbital" type="RigidBody2D"]
+mass = 0.001
+gravity_scale = 0.0
+script = ExtResource("1_knh48")

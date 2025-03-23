@@ -11,14 +11,33 @@
 script = ExtResource("1_msvkx")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 y_sort_enabled = true
-offset_left = -4071.0
-offset_top = -1376.0
-offset_right = 7126.0
-offset_bottom = 2331.0
+offset_left = -2136.0
+offset_top = -1258.0
+offset_right = 7281.0
+offset_bottom = 2423.0
 texture = ExtResource("6_msvkx")
 expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+y_sort_enabled = true
+offset_left = -120.0
+offset_top = 3454.0
+offset_right = 9557.0
+offset_bottom = 7135.0
+texture = ExtResource("6_msvkx")
+expand_mode = 2
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+y_sort_enabled = true
+offset_left = -250.0
+offset_top = -3562.0
+offset_right = 9427.0
+offset_bottom = 119.0
+texture = ExtResource("6_msvkx")
+expand_mode = 2
+flip_v = true
 
 [node name="nucleus" parent="." instance=ExtResource("2_p88jk")]
 position = Vector2(497, 377)

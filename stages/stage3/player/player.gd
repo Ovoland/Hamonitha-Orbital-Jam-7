@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal hit
+signal zaWarudo
 
 var health = 3
 var speed = 300.0
@@ -19,6 +20,9 @@ var dashing = false
 #Abilities
 var dashUnlocked = true
 var dashCoolDowned = false
+var timeStopCoolDowned = false
+var ZAWARDO_FACTOR = 1.0
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,9 +33,14 @@ func _physics_process(delta: float) -> void:
 	
 	#Verify that we aren't in a knocking back animation
 	if knockback == Vector2.ZERO:
+		if Input.is_action_just_pressed("timeStop") and !timeStopCoolDowned:
+			zaWarudo.emit()
+			timeStopCoolDowned = true
+			$TimeStopCoolDown.start()
+
 		# Movement handdling
 		var direction = Vector2.ZERO # The player's movement vector.
-		if Input.is_action_just_pressed("dash") and !dashCoolDowned and dashUnlocked:
+		if Input.is_action_just_pressed("dash") and !dashCoolDowned and  dashUnlocked:
 			dashing = true
 			dashCoolDowned = true
 			speed = DASH_VELOCITY
@@ -59,7 +68,7 @@ func _physics_process(delta: float) -> void:
 			last_dir = direction
 			
 		if velocity.length() > 0:
-			velocity = velocity.normalized() * speed 
+			velocity = velocity.normalized() * speed * ZAWARDO_FACTOR
 			$AnimatedSprite2D.play()
 		else:
 			$AnimatedSprite2D.stop()
@@ -125,8 +134,6 @@ func knockbacking(directionKnock, delay):
 	$KnockbackTimer.wait_time = delay
 	$KnockbackTimer.start()
 	
-	
-
 func _on_knockback_timer_timeout() -> void:
 	knockback = Vector2.ZERO
 	await get_tree().create_timer(recoveryTime).timeout
@@ -134,5 +141,15 @@ func _on_knockback_timer_timeout() -> void:
 	$hitbox/CollisionShape2D.set_deferred("disabled", false)
 
 
+func _on_time_stop_cool_down_timeout() -> void:
+	timeStopCoolDowned = false
+
+
 func _on_dash_cooldown_timeout() -> void:
 	dashCoolDowned = false
+	
+func setOnZawardo():
+	ZAWARDO_FACTOR = 0.2
+	
+func setOffZawardo():
+	ZAWARDO_FACTOR = 1
