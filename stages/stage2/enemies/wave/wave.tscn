@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck43f6c0qwwun"]
+
+[ext_resource type="Texture2D" uid="uid://cwvcjyvllb46c" path="res://stages/stage2/enemies/wave/Wave.png" id="1_87iui"]
+[ext_resource type="Script" uid="uid://6ybiqkoia6j2" path="res://stages/stage2/enemies/wave/wave.gd" id="1_lvomb"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_87iui"]
+points = PackedVector2Array(-61, 1482, -387, 1578, 17, 1055, 201, -2, 26, -843, -336, -1535, 78, -1313, 337, -240, 343, 338, 256, 995)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvomb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_87iui")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="wave" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_lvomb")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+visible = false
+shape = SubResource("ConvexPolygonShape2D_87iui")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox"]
+scale = Vector2(0.2, 0.4)
+polygon = PackedVector2Array(-323.333, -1635, 127, -1230, 311, -602, 377, 21, 322, 660, 215, 1150, -230, 1752.5, -45, 1133, 123, 510, 172, 21, 42, -915)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, 13)
+rotation = -1.5708
+scale = Vector2(0.6, 0.2)
+sprite_frames = SubResource("SpriteFrames_lvomb")
+
+[node name="collision" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.2, 0.4)
+polygon = PackedVector2Array(-323.333, -1635, 127, -1230, 311, -602, 377, 21, 322, 660, 215, 1150, -230, 1752.5, -45, 1133, 123, 510, 172, 21, 42, -915)

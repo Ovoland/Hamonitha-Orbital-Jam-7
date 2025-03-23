@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp78oya76jx8n"]
+
+[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="1_rs4r3"]
+
+[node name="StartScreenOverlay" type="CanvasLayer"]
+
+[node name="StartScreenMessage" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -391.5
+offset_top = -100.0
+offset_right = 391.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_rs4r3")
+theme_override_font_sizes/font_size = 100
+text = "Press Space to start"

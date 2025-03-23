@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu34du1m6aub7"]
+
+[ext_resource type="Script" uid="uid://drjgmbkav3fi8" path="res://stages/stage3/UI/fight/fight_ui.gd" id="1_wufo1"]
+[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="2_mgiub"]
+
+[node name="fightUI" type="CanvasLayer"]
+script = ExtResource("1_wufo1")
+
+[node name="Message" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.003
+anchor_right = 0.001
+anchor_bottom = 0.003
+offset_left = 653.848
+offset_top = 783.056
+offset_right = 1253.85
+offset_bottom = 990.056
+theme_override_fonts/font = ExtResource("2_mgiub")
+theme_override_font_sizes/font_size = 80
+text = "Phase 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="ZaWarduEffect" type="Label" parent="."]
+offset_left = 1687.0
+offset_top = 39.0
+offset_right = 1770.0
+offset_bottom = 86.0
+theme_override_fonts/font = ExtResource("2_mgiub")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ZaWarduCoolDown" type="Label" parent="."]
+offset_right = 89.0
+offset_bottom = 46.0
+
+[node name="Tuto" type="Label" parent="."]
+offset_left = 1423.0
+offset_top = 442.0
+offset_right = 1850.0
+offset_bottom = 651.0
+theme_override_fonts/font = ExtResource("2_mgiub")
+theme_override_font_sizes/font_size = 30
+text = "Use \"e\" to slow down time
+
+Za Warado !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutoTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]

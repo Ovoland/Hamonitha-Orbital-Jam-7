@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkv36qwqffuap"]
+
+[ext_resource type="Script" uid="uid://brx0gsuxeqyul" path="res://stages/stage3/player/player.gd" id="1_r25pf"]
+[ext_resource type="Texture2D" uid="uid://byamqwuug504d" path="res://stages/stage1/player/Assets/player_electron.png" id="2_jqse6"]
+[ext_resource type="AudioStream" uid="uid://dinlfwkt5rnsd" path="res://stages/stage2/Music/Hit.mp3" id="3_c4t2f"]
+[ext_resource type="AudioStream" uid="uid://cqs6a0skcc36i" path="res://stages/stage3/Music/Dash.mp3" id="4_jqse6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e48y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqse6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r25pf"]
+radius = 52.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 7
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_r25pf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_0e48y")
+
+[node name="collisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_epypp")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_rkbax")
+debug_color = Color(0.803316, 0.00244909, 0.999821, 0.42)
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MusicHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c4t2f")
+volume_db = -1.981
+
+[node name="ZaWardoCoolDown" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="BorderCollision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderCollision"]
+shape = SubResource("CircleShape2D_r25pf")
+
+[node name="DashMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jqse6")
+volume_db = -2.971
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
+[connection signal="timeout" from="ZaWardoCoolDown" to="." method="_on_time_stop_cool_down_timeout"]

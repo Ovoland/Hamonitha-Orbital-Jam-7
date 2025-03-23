@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwi6behdpy874"]
+
+[ext_resource type="Script" uid="uid://cq5bfw6q302w4" path="res://stages/stage3/enemies/nucleus/nucleus.gd" id="1_ahxov"]
+[ext_resource type="Texture2D" uid="uid://cv5v60k4vdnai" path="res://stages/stage3/enemies/nucleus/Carbon.png" id="2_ahxov"]
+[ext_resource type="AudioStream" uid="uid://dg2xoxk0can36" path="res://stages/stage3/Music/Hit (gros).mp3" id="3_o1yic"]
+[ext_resource type="AudioStream" uid="uid://cdg5e65qa267y" path="res://stages/stage3/Music/Disappearance.mp3" id="4_aujn7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1cnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ahxov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nb2td"]
+radius = 90.0056
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gq2qb"]
+radius = 97.0052
+
+[node name="nucleus" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ahxov")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.123535, 0.123535)
+sprite_frames = SubResource("SpriteFrames_c1cnm")
+
+[node name="colilsionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nb2td")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_gq2qb")
+debug_color = Color(0.682662, 0.296256, 1, 0.42)
+
+[node name="HitMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o1yic")
+volume_db = -3.962
+
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aujn7")
+volume_db = -2.971
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

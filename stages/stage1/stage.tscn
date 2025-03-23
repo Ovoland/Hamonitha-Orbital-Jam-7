@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwd2usbtvn0up"]
+
+[ext_resource type="Script" uid="uid://dmk1002bh705n" path="res://stages/stage1/stage.gd" id="1_v3mmb"]
+[ext_resource type="PackedScene" uid="uid://ddepahyssu5xn" path="res://stages/stage1/enemies/nucleus/nucleus.tscn" id="2_1ikmb"]
+[ext_resource type="PackedScene" uid="uid://bx7rvuc5bo7oj" path="res://stages/stage1/player/player.tscn" id="3_lekrv"]
+[ext_resource type="PackedScene" uid="uid://b8hrk7yd0uh7r" path="res://stages/stage1/UI/fight/fight_ui.tscn" id="4_aqvps"]
+[ext_resource type="AudioStream" uid="uid://d1qjslf8207t2" path="res://stages/stage1/Music/1. Shy guy (sky).mp3" id="5_lekrv"]
+[ext_resource type="Texture2D" uid="uid://dh6hx8hyeucod" path="res://stages/stage1/01_H_combat.png" id="6_sosg0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sosg0"]
+size = Vector2(3112, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kix5x"]
+size = Vector2(90, 2775.5)
+
+[node name="word" type="Node2D" groups=["layer1"]]
+script = ExtResource("1_v3mmb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2312.0
+offset_top = -1750.0
+offset_right = 3728.0
+offset_bottom = 449.0
+texture = ExtResource("6_sosg0")
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 1978.0
+offset_right = 6037.0
+offset_bottom = 4396.0
+texture = ExtResource("6_sosg0")
+flip_h = true
+
+[node name="nucleus" parent="." instance=ExtResource("2_1ikmb")]
+position = Vector2(995, 700)
+
+[node name="player" parent="." instance=ExtResource("3_lekrv")]
+position = Vector2(140, 120)
+collision_layer = 5
+collision_mask = 5
+
+[node name="startPosition" type="Marker2D" parent="."]
+position = Vector2(139, 123)
+
+[node name="fightUI" parent="." instance=ExtResource("4_aqvps")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lekrv")
+autoplay = true
+parameters/looping = true
+
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(690, -598)
+shape = SubResource("RectangleShape2D_sosg0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(688, 1771)
+shape = SubResource("RectangleShape2D_sosg0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-687, 495)
+shape = SubResource("RectangleShape2D_kix5x")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(2162, 520)
+shape = SubResource("RectangleShape2D_kix5x")
+
+[connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]
+[connection signal="hit" from="nucleus" to="." method="_on_nucleus_hit"]
+[connection signal="hit" from="player" to="." method="_on_player_hit"]
+[connection signal="hit" from="player" to="." method="game_over"]

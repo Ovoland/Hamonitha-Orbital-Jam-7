@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnwgqjl252k78"]
+
+[ext_resource type="Script" uid="uid://beovhd23co3m0" path="res://stages/stage2/stage.gd" id="1_msvkx"]
+[ext_resource type="PackedScene" uid="uid://cj0ps4hhqshyw" path="res://stages/stage2/enemies/nucleus/nucleus.tscn" id="2_p88jk"]
+[ext_resource type="PackedScene" uid="uid://66itnttx3ekg" path="res://stages/stage2/player/player.tscn" id="3_q4n1m"]
+[ext_resource type="PackedScene" uid="uid://biweywjnx1omc" path="res://stages/stage2/UI/fight/fight_ui.tscn" id="4_msvkx"]
+[ext_resource type="AudioStream" uid="uid://bs6bypxvro1wk" path="res://stages/stage2/Music/2. O (water level) V2.mp3" id="6_gidia"]
+[ext_resource type="Texture2D" uid="uid://cwe0y0wdshxcn" path="res://stages/stage2/Background.jpg" id="6_msvkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msvkx"]
+size = Vector2(129, 3365.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gidia"]
+size = Vector2(3868.86, 14.4996)
+
+[node name="word" type="Node2D" groups=["layer1"]]
+script = ExtResource("1_msvkx")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -3587.0
+offset_top = -2611.0
+offset_right = 4050.0
+offset_bottom = 259.0
+texture = ExtResource("6_msvkx")
+flip_h = true
+flip_v = true
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 2791.0
+offset_right = 7667.0
+offset_bottom = 5614.0
+texture = ExtResource("6_msvkx")
+
+[node name="nucleus" parent="." instance=ExtResource("2_p88jk")]
+position = Vector2(497, 377)
+
+[node name="player" parent="." instance=ExtResource("3_q4n1m")]
+position = Vector2(1786, 745)
+
+[node name="startPosition" type="Marker2D" parent="."]
+position = Vector2(1779, 755)
+scale = Vector2(4.37933, -4.66184)
+
+[node name="fightUI" parent="." instance=ExtResource("4_msvkx")]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_gidia")
+volume_db = 3.962
+parameters/looping = true
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1039.5, 195.25)
+shape = SubResource("RectangleShape2D_msvkx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2754, 164)
+shape = SubResource("RectangleShape2D_msvkx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(757, 1822.25)
+scale = Vector2(1.13106, -12.3107)
+shape = SubResource("RectangleShape2D_gidia")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(817, -1447)
+scale = Vector2(1.13106, -12.3107)
+shape = SubResource("RectangleShape2D_gidia")
+
+[connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]
+[connection signal="hit" from="nucleus" to="." method="_on_nucleus_hit"]
+[connection signal="wave" from="nucleus" to="." method="_on_nucleus_wave"]
+[connection signal="hit" from="player" to="." method="game_over"]
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

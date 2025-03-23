@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1ogbel8l3eu"
+path="res://.godot/imported/Hit (gros).mp3-2862b4732bd88948e5dc8e2eea0cffd7.mp3str"
+
+[deps]
+
+source_file="res://stages/stage1/Music/Hit (gros).mp3"
+dest_files=["res://.godot/imported/Hit (gros).mp3-2862b4732bd88948e5dc8e2eea0cffd7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cj0ps4hhqshyw"]
+
+[ext_resource type="Script" uid="uid://sx7jww0kp0ns" path="res://stages/stage2/enemies/nucleus/nucleus.gd" id="1_ccseo"]
+[ext_resource type="Texture2D" uid="uid://1haj73tnthpq" path="res://stages/stage2/enemies/nucleus/Oxygene.png" id="2_ccseo"]
+[ext_resource type="AudioStream" uid="uid://bsemfoxgxmnpd" path="res://stages/stage2/Music/Hit (gros).mp3" id="3_bte1b"]
+[ext_resource type="AudioStream" uid="uid://b3l0oqib0v18q" path="res://stages/stage2/Music/Disappearance.mp3" id="4_shqhf"]
+[ext_resource type="AudioStream" uid="uid://bl6dypurwgoh5" path="res://stages/stage2/Music/Water Wave.mp3" id="5_0bjfa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1cnm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ccseo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nb2td"]
+radius = 90.0056
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gq2qb"]
+radius = 97.0052
+
+[node name="nucleus" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ccseo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.123535, 0.123535)
+sprite_frames = SubResource("SpriteFrames_c1cnm")
+
+[node name="colilsionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nb2td")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_gq2qb")
+debug_color = Color(0.682662, 0.296256, 1, 0.42)
+
+[node name="HitMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bte1b")
+volume_db = -2.971
+
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_shqhf")
+volume_db = -1.981
+
+[node name="WaveMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0bjfa")
+volume_db = -2.971
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
