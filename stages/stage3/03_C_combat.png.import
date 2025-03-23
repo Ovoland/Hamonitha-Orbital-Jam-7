@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwe0y0wdshxcn"
-path="res://.godot/imported/Background.jpg-71865014f177c68ab7e1f28bc3144c7d.ctex"
+uid="uid://dqh1ur8gsi361"
+path="res://.godot/imported/03_C_combat.png-5ca16f5e9fc237e922dc1f7031b7f9b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/stage2/Background.jpg"
-dest_files=["res://.godot/imported/Background.jpg-71865014f177c68ab7e1f28bc3144c7d.ctex"]
+source_file="res://stages/stage3/03_C_combat.png"
+dest_files=["res://.godot/imported/03_C_combat.png-5ca16f5e9fc237e922dc1f7031b7f9b2.ctex"]
 
 [params]
 

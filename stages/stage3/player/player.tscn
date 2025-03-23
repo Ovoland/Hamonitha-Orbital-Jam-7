@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkv36qwqffuap"]
+[gd_scene load_steps=8 format=3 uid="uid://dkv36qwqffuap"]
 
 [ext_resource type="Script" uid="uid://brx0gsuxeqyul" path="res://stages/stage3/player/player.gd" id="1_r25pf"]
 [ext_resource type="Texture2D" uid="uid://byamqwuug504d" path="res://stages/stage1/player/Assets/player_electron.png" id="2_jqse6"]
@@ -21,9 +21,12 @@ radius = 23.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
 radius = 23.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r25pf"]
+radius = 52.0
+
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_r25pf")
 
@@ -41,6 +44,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -59,11 +63,19 @@ one_shot = true
 stream = ExtResource("3_c4t2f")
 volume_db = -1.981
 
-[node name="TimeStopCoolDown" type="Timer" parent="."]
+[node name="ZaWardoCoolDown" type="Timer" parent="."]
 wait_time = 7.0
+one_shot = true
+
+[node name="BorderCollision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderCollision"]
+shape = SubResource("CircleShape2D_r25pf")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
-[connection signal="timeout" from="TimeStopCoolDown" to="." method="_on_time_stop_cool_down_timeout"]
+[connection signal="timeout" from="ZaWardoCoolDown" to="." method="_on_time_stop_cool_down_timeout"]

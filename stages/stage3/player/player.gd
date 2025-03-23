@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
+		
 	if !dashing:
 		speed = DEFAULT_SPEED
 	
@@ -36,8 +37,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("timeStop") and !timeStopCoolDowned:
 			zaWarudo.emit()
 			timeStopCoolDowned = true
-			$TimeStopCoolDown.start()
-
+			$ZaWardoCoolDown.start()
+		
 		# Movement handdling
 		var direction = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_just_pressed("dash") and !dashCoolDowned and  dashUnlocked:
@@ -125,8 +126,6 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		
 			
 
-
-
 func knockbacking(directionKnock, delay):
 	knockback = directionKnock
 	$collisionBox.set_deferred("disabled", true)
@@ -143,13 +142,19 @@ func _on_knockback_timer_timeout() -> void:
 
 func _on_time_stop_cool_down_timeout() -> void:
 	timeStopCoolDowned = false
-
+	modulate = Color.LIGHT_BLUE
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color.WHITE
 
 func _on_dash_cooldown_timeout() -> void:
 	dashCoolDowned = false
+	modulate = Color.KHAKI
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color.WHITE
+
 	
 func setOnZawardo():
-	ZAWARDO_FACTOR = 0.2
+	ZAWARDO_FACTOR = 0.4
 	
 func setOffZawardo():
 	ZAWARDO_FACTOR = 1

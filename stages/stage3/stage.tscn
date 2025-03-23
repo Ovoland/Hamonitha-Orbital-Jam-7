@@ -1,13 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://dprsstogymofv"]
+[gd_scene load_steps=9 format=3 uid="uid://dprsstogymofv"]
 
 [ext_resource type="Script" uid="uid://4kdsikjvin31" path="res://stages/stage3/stage.gd" id="1_is8fw"]
 [ext_resource type="PackedScene" uid="uid://dkv36qwqffuap" path="res://stages/stage3/player/player.tscn" id="2_2nrc3"]
 [ext_resource type="PackedScene" uid="uid://dwi6behdpy874" path="res://stages/stage3/enemies/nucleus/nucleus.tscn" id="3_ti6ru"]
 [ext_resource type="PackedScene" uid="uid://bu34du1m6aub7" path="res://stages/stage3/UI/fight/fight_ui.tscn" id="5_2nrc3"]
+[ext_resource type="Texture2D" uid="uid://dqh1ur8gsi361" path="res://stages/stage3/03_C_combat.png" id="6_ti6ru"]
 [ext_resource type="AudioStream" uid="uid://dthgdtmvb2htm" path="res://stages/stage3/Music/3. Earth level (Jungle).mp3" id="7_is8fw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti6ru"]
+size = Vector2(697.75, 4300)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is8fw"]
+size = Vector2(4315.5, 418.25)
 
 [node name="word" type="Node2D" groups=["layer1"]]
 script = ExtResource("1_is8fw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2293.0
+offset_top = -818.0
+offset_right = 3838.0
+offset_bottom = 1790.0
+texture = ExtResource("6_ti6ru")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_top = -2300.0
+offset_right = 6131.0
+offset_bottom = 45.0
+texture = ExtResource("6_ti6ru")
+flip_v = true
 
 [node name="player" parent="." instance=ExtResource("2_2nrc3")]
 position = Vector2(580, 322)
@@ -30,10 +52,30 @@ wait_time = 7.0
 autostart = true
 
 [node name="ZaWardoEffect" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 
 [node name="fightUI" parent="." instance=ExtResource("5_2nrc3")]
+
+[node name="BorderCollision" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderCollision"]
+position = Vector2(-1468.13, -696)
+shape = SubResource("RectangleShape2D_ti6ru")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BorderCollision"]
+position = Vector2(2887.25, -716)
+shape = SubResource("RectangleShape2D_ti6ru")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BorderCollision"]
+position = Vector2(867, -2734.88)
+shape = SubResource("RectangleShape2D_is8fw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BorderCollision"]
+position = Vector2(867, 1378)
+shape = SubResource("RectangleShape2D_is8fw")
 
 [connection signal="hit" from="player" to="." method="game_over"]
 [connection signal="zaWarudo" from="player" to="." method="_zaWarudo"]
