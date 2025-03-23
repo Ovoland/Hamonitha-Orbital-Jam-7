@@ -75,7 +75,7 @@ func _on_nucleus_dead() -> void:
 	cleanOrbitals()
 	cleanElectrons()
 	$nucleus.queue_free()
-	print("You win!")
+	$fightUI.show_message("VICTORY !")
 
 
 func _on_player_hit() -> void:

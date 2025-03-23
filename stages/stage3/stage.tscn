@@ -45,7 +45,7 @@ scale = Vector2(4.37933, -4.66184)
 position = Vector2(98, 168)
 stream = ExtResource("7_is8fw")
 volume_db = 3.962
-parameters/looping = false
+parameters/looping = true
 
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 7.0

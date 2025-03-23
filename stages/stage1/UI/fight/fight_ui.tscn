@@ -12,10 +12,10 @@ anchor_left = 0.001
 anchor_top = 0.003
 anchor_right = 0.001
 anchor_bottom = 0.003
-offset_left = 653.08
-offset_top = 866.76
-offset_right = 1253.08
-offset_bottom = 1073.76
+offset_left = 24.848
+offset_top = 318.056
+offset_right = 624.848
+offset_bottom = 525.056
 theme_override_fonts/font = ExtResource("1_enpn1")
 theme_override_font_sizes/font_size = 80
 text = "Phase 1"
@@ -25,4 +25,21 @@ vertical_alignment = 1
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="TutoTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="Tuto" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 10.0
+offset_right = 410.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("1_enpn1")
+theme_override_font_sizes/font_size = 20
+text = "Use w,a,s,d to move 
+
+Attack the enemy but reaching its nucleus ! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="timeout" from="TutoTimer" to="." method="_on_tuto_timer_timeout"]

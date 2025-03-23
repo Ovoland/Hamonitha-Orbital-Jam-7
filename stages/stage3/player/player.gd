@@ -46,13 +46,14 @@ func _physics_process(delta: float) -> void:
 			dashCoolDowned = true
 			speed = DASH_VELOCITY
 			velocity = last_dir
+			$DashMusic.play()
 			$collisionBox.set_deferred("disabled", true)
 			$hitbox/CollisionShape2D.set_deferred("disabled", true)
 			$DashTimer.start()
 			$DashCooldown.start()
 		else:
-			if Input.is_action_pressed("sprint"):
-				speed = SRINT_VELOCITY
+			#if Input.is_action_pressed("sprint"):
+			#	speed = SRINT_VELOCITY
 			if Input.is_action_pressed("move_right"):
 				direction.x += 1
 			if Input.is_action_pressed("move_left"):

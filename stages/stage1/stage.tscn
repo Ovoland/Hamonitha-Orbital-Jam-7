@@ -17,19 +17,19 @@ size = Vector2(90, 2775.5)
 script = ExtResource("1_v3mmb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -1840.0
-offset_top = -1538.0
-offset_right = 2784.0
+offset_left = -2312.0
+offset_top = -1750.0
+offset_right = 3728.0
 offset_bottom = 449.0
 texture = ExtResource("6_sosg0")
 flip_v = true
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 1939.0
-offset_right = 4613.0
-offset_bottom = 3926.0
+offset_left = 17.0
+offset_top = 1978.0
+offset_right = 6037.0
+offset_bottom = 4396.0
 texture = ExtResource("6_sosg0")
 flip_h = true
 
@@ -49,25 +49,26 @@ position = Vector2(139, 123)
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_lekrv")
 autoplay = true
+parameters/looping = true
 
 [node name="WorldBorder" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(697, -396)
+position = Vector2(690, -598)
 shape = SubResource("RectangleShape2D_sosg0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(668, 1569)
+position = Vector2(688, 1771)
 shape = SubResource("RectangleShape2D_sosg0")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(-499, 500)
+position = Vector2(-687, 495)
 shape = SubResource("RectangleShape2D_kix5x")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(1905, 515)
+position = Vector2(2162, 520)
 shape = SubResource("RectangleShape2D_kix5x")
 
 [connection signal="dead" from="nucleus" to="." method="_on_nucleus_dead"]

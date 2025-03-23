@@ -33,8 +33,8 @@ func _physics_process(delta: float) -> void:
 			velocity = last_dir
 			$DashTimer.start()
 		else:
-			if Input.is_action_pressed("sprint"):
-				speed = 600.0
+			#if Input.is_action_pressed("sprint"):
+				#speed = 600.0
 			if Input.is_action_pressed("move_right"):
 				direction.x += 1
 			if Input.is_action_pressed("move_left"):

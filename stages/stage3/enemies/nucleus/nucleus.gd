@@ -17,9 +17,14 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		health -= 1
 		if health <= 0:
+			await get_tree().create_timer(0.2).timeout
+			$DeathMusic.play()			
+			modulate = Color.RED
+			await get_tree().create_timer(0.5).timeout
 			dead.emit()
 			queue_free()
 		else:
+			$HitMusic.play()
 			hit.emit()
 			modulate = Color.RED
 			await get_tree().create_timer(recoveryTime).timeout

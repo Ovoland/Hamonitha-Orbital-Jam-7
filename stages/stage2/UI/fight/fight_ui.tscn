@@ -12,10 +12,10 @@ anchor_left = 0.001
 anchor_top = 0.003
 anchor_right = 0.001
 anchor_bottom = 0.003
-offset_left = 653.08
-offset_top = 866.76
-offset_right = 1253.08
-offset_bottom = 1073.76
+offset_left = 1119.85
+offset_top = 771.056
+offset_right = 1719.85
+offset_bottom = 978.056
 theme_override_fonts/font = ExtResource("2_3e2r3")
 theme_override_font_sizes/font_size = 80
 text = "Phase 1"
@@ -25,4 +25,21 @@ vertical_alignment = 1
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="Tuto" type="Label" parent="."]
+offset_left = 1450.0
+offset_top = 77.0
+offset_right = 1827.0
+offset_bottom = 220.0
+theme_override_fonts/font = ExtResource("2_3e2r3")
+theme_override_font_sizes/font_size = 30
+text = "Use \"enter\" to dash
+
+Beware the wave !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TutoTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="timeout" from="TutoTimer" to="." method="_on_tuto_timer_timeout"]

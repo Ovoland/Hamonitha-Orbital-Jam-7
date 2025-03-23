@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://66itnttx3ekg"]
+[gd_scene load_steps=9 format=3 uid="uid://66itnttx3ekg"]
 
 [ext_resource type="Script" uid="uid://br02l606n88pv" path="res://stages/stage2/player/player.gd" id="1_xuyh7"]
 [ext_resource type="Texture2D" uid="uid://byamqwuug504d" path="res://stages/stage1/player/Assets/player_electron.png" id="2_4ibsl"]
 [ext_resource type="AudioStream" uid="uid://dinlfwkt5rnsd" path="res://stages/stage2/Music/Hit.mp3" id="3_4ibsl"]
+[ext_resource type="AudioStream" uid="uid://6d4heikcedfc" path="res://stages/stage2/Music/Dash.mp3" id="4_7g4hd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0e48y"]
 animations = [{
@@ -68,6 +69,10 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="borderCollision"]
 shape = SubResource("CircleShape2D_4ibsl")
+
+[node name="DashMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7g4hd")
+volume_db = -5.943
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

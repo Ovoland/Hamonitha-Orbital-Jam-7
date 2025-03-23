@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddepahyssu5xn"]
+[gd_scene load_steps=8 format=3 uid="uid://ddepahyssu5xn"]
 
 [ext_resource type="Script" uid="uid://dn5vy38l5lenk" path="res://stages/stage1/enemies/nucleus/nucleus.gd" id="1_v3wuo"]
 [ext_resource type="Texture2D" uid="uid://cfaa3v5l2erg5" path="res://stages/stage1/enemies/nucleus/Hydrogene.png" id="2_an8bm"]
+[ext_resource type="AudioStream" uid="uid://d1ogbel8l3eu" path="res://stages/stage1/Music/Hit (gros).mp3" id="3_iisu2"]
+[ext_resource type="AudioStream" uid="uid://bqmtkvubdlwan" path="res://stages/stage1/Music/Disappearance.mp3" id="4_gjgxc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1cnm"]
 animations = [{
@@ -37,5 +39,13 @@ shape = SubResource("CircleShape2D_nb2td")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("CircleShape2D_gq2qb")
 debug_color = Color(0.682662, 0.296256, 1, 0.42)
+
+[node name="HitMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iisu2")
+volume_db = -3.962
+
+[node name="DeathMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gjgxc")
+volume_db = -2.911
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
