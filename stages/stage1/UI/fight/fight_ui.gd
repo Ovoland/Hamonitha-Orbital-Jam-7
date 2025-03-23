@@ -15,7 +15,12 @@ func show_message(text):
 	$Message.show()
 	$MessageTimer.start()
 	
-	
+func show_tuto():
+	$Tuto.show()
+	$TutoTimer.start()
 
 func _on_message_timer_timeout() -> void:
 	$Message.hide()
+	
+func _on_tuto_timer_timeout() -> void:
+	$Tuto.hide()
