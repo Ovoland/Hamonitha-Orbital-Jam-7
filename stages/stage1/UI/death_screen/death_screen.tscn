@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8o10smx3wqfl"]
 
-[ext_resource type="Script" uid="uid://dviswac4nhwii" path="res://stages/stage1/UI/death_screen1/death_screen.gd" id="1_mse5b"]
+[ext_resource type="Script" uid="uid://dviswac4nhwii" path="res://stages/stage1/UI/death_screen/death_screen.gd" id="1_mse5b"]
 [ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://UI/fonts/AlegreyaSans-Black.ttf" id="1_pby7b"]
 
 [node name="deathScreen" type="Node2D"]

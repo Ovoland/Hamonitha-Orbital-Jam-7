@@ -1,10 +1,10 @@
 extends RigidBody2D
 signal hit
 signal dead
+signal wave
 
 var health = 3
-const recoveryTime = 0.1
-
+const recoveryTime = 0.2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.has_method("player"):
 		health -= 1
-		if  health <= 0:
+		if health <= 0:
 			dead.emit()
 			queue_free()
 		else:
@@ -27,3 +27,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 			modulate = Color.WHITE
 
 			
+func chargeAttack():
+	modulate = Color.BLUE
+	await get_tree().create_timer(3*recoveryTime).timeout
+	modulate = Color.WHITE

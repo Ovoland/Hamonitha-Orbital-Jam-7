@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://66itnttx3ekg"]
+
+[ext_resource type="Script" uid="uid://br02l606n88pv" path="res://stages/stage2/player/player.gd" id="1_xuyh7"]
+[ext_resource type="Texture2D" uid="uid://byamqwuug504d" path="res://stages/stage1/player/Assets/player_electron.png" id="2_4ibsl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0e48y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ibsl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epypp"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 23.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_xuyh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(0.03, 0.03)
+sprite_frames = SubResource("SpriteFrames_0e48y")
+
+[node name="collisionBox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_epypp")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_rkbax")
+debug_color = Color(0.803316, 0.00244909, 0.999821, 0.42)
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

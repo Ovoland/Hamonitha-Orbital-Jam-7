@@ -7,15 +7,17 @@
 
 [node name="word" type="Node2D" groups=["layer1"]]
 script = ExtResource("1_v3mmb")
+electron_scene = null
+orbital_scene = null
 
 [node name="nucleus" parent="." instance=ExtResource("2_1ikmb")]
 position = Vector2(1020, 603)
 
 [node name="player" parent="." instance=ExtResource("3_lekrv")]
-position = Vector2(140, 120)
+position = Vector2(70, 60)
 
 [node name="startPosition" type="Marker2D" parent="."]
-position = Vector2(139, 123)
+position = Vector2(69, 60)
 
 [node name="fightUI" parent="." instance=ExtResource("4_aqvps")]
 

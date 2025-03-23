@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyrh4l3tsow7e"
-path="res://.godot/imported/Circle.svg-1b66ea0aebe3255c83e0adf3e8fe68a2.ctex"
+uid="uid://damjxklde0jil"
+path="res://.godot/imported/RedCircle.svg-a6930ba46dd888112e7152467844c654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stages/stage1/enemies/orbital/Circle.svg"
-dest_files=["res://.godot/imported/Circle.svg-1b66ea0aebe3255c83e0adf3e8fe68a2.ctex"]
+source_file="res://stages/stage2/player/Assets/RedCircle.svg"
+dest_files=["res://.godot/imported/RedCircle.svg-a6930ba46dd888112e7152467844c654.ctex"]
 
 [params]
 
