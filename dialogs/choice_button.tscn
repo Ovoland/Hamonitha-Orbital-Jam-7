@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjm2suicq3gx7"]
+
+[ext_resource type="FontFile" uid="uid://cg0depop5oab6" path="res://fonts/AlegreyaSans-Black.ttf" id="1_aho74"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxv28"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.87451, 0.443137, 0.14902, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_py884"]
+bg_color = Color(0.544974, 0.544974, 0.544974, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.67451, 0.196078, 0.196078, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppvqx"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.67451, 0.196078, 0.196078, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="ChoiceButton" type="Button"]
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_aho74")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxv28")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_py884")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ppvqx")

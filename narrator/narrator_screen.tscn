@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://or1imalxan7s"]
+
+[ext_resource type="Script" uid="uid://dv37msjhstlqk" path="res://narrator/narrator_screen.gd" id="1_wlqnc"]
+
+[node name="narrator_screen" type="ColorRect"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_wlqnc")

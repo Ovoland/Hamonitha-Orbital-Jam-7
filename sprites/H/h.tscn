@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dersvbecf043i"]
+
+[ext_resource type="Texture2D" uid="uid://bvgymga6ah7sf" path="res://sprites/H/H_Default.png" id="1_65iv2"]
+[ext_resource type="Script" uid="uid://bgsd1rqmpfb3o" path="res://sprites/H/h.gd" id="2_v18md"]
+
+[node name="H" type="Sprite2D"]
+texture = ExtResource("1_65iv2")
+script = ExtResource("2_v18md")

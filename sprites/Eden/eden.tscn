@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://spmgx5dgdnj5"]
+
+[ext_resource type="Texture2D" uid="uid://vgplt2r0w1ts" path="res://sprites/Eden/E-Den_Default.png" id="1_vvsbw"]
+[ext_resource type="Script" uid="uid://ddliykn4kiq1u" path="res://sprites/Eden/eden.gd" id="2_xxah4"]
+
+[node name="Eden" type="Sprite2D"]
+texture = ExtResource("1_vvsbw")
+script = ExtResource("2_xxah4")
