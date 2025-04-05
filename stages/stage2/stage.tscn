@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://66itnttx3ekg" path="res://stages/stage2/player/player.tscn" id="3_q4n1m"]
 [ext_resource type="PackedScene" uid="uid://biweywjnx1omc" path="res://stages/stage2/UI/fight/fight_ui.tscn" id="4_msvkx"]
 [ext_resource type="AudioStream" uid="uid://bs6bypxvro1wk" path="res://stages/stage2/Music/2. O (water level) V2.mp3" id="6_gidia"]
-[ext_resource type="Texture2D" uid="uid://cwe0y0wdshxcn" path="res://stages/stage2/Background.jpg" id="6_msvkx"]
+[ext_resource type="Texture2D" uid="uid://cwe0y0wdshxcn" path="res://stages/stage2/background.jpg" id="6_msvkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msvkx"]
 size = Vector2(129, 3365.5)
